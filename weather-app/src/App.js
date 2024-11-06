@@ -1,8 +1,12 @@
-
+import Search from "./components/search";
+import Weather from "./components/weather";
+import "./App.css"
 function App() {
   return (
     <div className="App">
-      APP
+      <Search />
+      <Weather />
+     
     </div>
   );
 }
