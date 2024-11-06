@@ -6,17 +6,20 @@ export default function Weather() {
   const [loading, setLoading] = useState(false)
   const [weatherData, setWeatherData] = useState(null)
 
+  
   async function fetchWeatherData(param) {
-   
+    setLoading(true)
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=f40bdcf1ce5954ad1799a1a1ec04c46b`
       )
 
-
       const data = await response.json()
-
-      console.log(data)
+     
+      if(data) {
+        setWeatherData(data)
+        setLoading(false)
+      }
     } catch (e) {
       setLoading(false)
       console.log(e)
@@ -26,15 +29,40 @@ export default function Weather() {
   async function handleSearch() {
     fetchWeatherData(search)
   }
+  function getCurrentDate() {
+    return new Date().toLocaleDateString('en-us', {
+           weekday: 'long',
+           month: 'long',
+           day: 'numeric',
+           year: 'numeric',
+        })
+    
+  }
 
+  useEffect(() => {
+    fetchWeatherData("bangalore")
+  }, [])
 
- 
+  console.log(weatherData)
   return (
-      <Search
+      <div>
+        <Search
         search={search}
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
+      {
+        loading ? <h1>Loading...</h1> :
+        <div>
+            <div className="city-name">
+                <h2>{weatherData?.name}, <span>{weatherData?.sys?.country}</span></h2>
+            </div>
+            <div className="date">
+              <span>{getCurrentDate()}</span>
+            </div>
+        </div>
+      }
+      </div>
      
   )
 }
