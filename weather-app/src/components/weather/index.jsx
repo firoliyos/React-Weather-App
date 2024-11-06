@@ -52,7 +52,7 @@ export default function Weather() {
         handleSearch={handleSearch}
       />
       {
-        loading ? <h1>Loading...</h1> :
+        loading ? <div className="loading">Loading...</div> :
         <div>
             <div className="city-name">
                 <h2>{weatherData?.name}, <span>{weatherData?.sys?.country}</span></h2>
