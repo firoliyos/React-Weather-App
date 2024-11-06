@@ -65,3 +65,10 @@ body {
   text-align: center;
 }
 
+.description {
+  color: #000;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
