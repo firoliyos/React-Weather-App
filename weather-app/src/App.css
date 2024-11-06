@@ -83,3 +83,9 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+.column {
+  display: flex;
+  align-items: center;
+  line-height: 2px;
+}
