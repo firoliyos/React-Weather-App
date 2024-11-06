@@ -42,3 +42,26 @@ body {
   padding: 13px 15px;
 }
 
+.city-name {
+  margin-bottom: 10px;
+}
+
+.loading {
+  font-size: 60px;
+  font-weight: bolder;
+  color: #000;
+}
+
+.date {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.temp {
+  font-size: 70px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
